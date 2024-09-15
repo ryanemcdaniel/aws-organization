@@ -1,0 +1,17 @@
+{
+  "name": "aws-organization",
+  "packageManager": "pnpm@9.9.0",
+  "engines": {
+    "node": "20.12.2"
+  },
+  "type": "module",
+  "scripts": {
+    "aws": "awslogin && awsexport",
+    "tffmt": "terraform fmt -recursive .",
+    "tfinit": "terraform -chdir=terraform init",
+    "tfpick": "terraform -chdir=terraform workspace select",
+    "tfplan": "terraform -chdir=terraform plan -out=.plan.tfplan",
+    "tfapply": "terraform -chdir=terraform apply .plan.tfplan",
+    "prprep": "pnpm install --merge-git-branch-lockfiles"
+  }
+}
