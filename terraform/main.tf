@@ -19,8 +19,9 @@ provider "aws" {
   region = "us-east-1"
   default_tags {
     tags = {
-      comp = "org"
+      org  = "org"
       env  = "org"
+      comp = "aws-organization"
       git  = "git@github.com:ryanemcdaniel/aws-organization.git"
     }
   }
@@ -30,16 +31,8 @@ output "account_ids" {
   value = {
     acc_root = {
       management = aws_organizations_organization.organization.master_account_id
-      human      = aws_organizations_account.human.id
-      infra      = aws_organizations_account.infra.id
-    }
-    dffp = {
-      qual = aws_organizations_account.dffp_qual.id
-      prod = aws_organizations_account.dffp_prod.id
-    }
-    ryan = {
-      qual = aws_organizations_account.ryan_qual.id
-      prod = aws_organizations_account.ryan_prod.id
+      human      = aws_organizations_account.account["human"].id
+      infra      = aws_organizations_account.account["infra"].id
     }
   }
 }
