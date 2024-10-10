@@ -17,4 +17,4 @@ override.tf.json
 .terraform.tfstate.lock.info
 .terraformrc
 terraform.rc
-locals.tf
+pnpm
